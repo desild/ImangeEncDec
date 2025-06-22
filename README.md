@@ -32,6 +32,20 @@ This is a **Flask-based web application** that provides secure image encryption 
 - Python 3.7+
 - `pip` package manager
 
+
+
+ImangeEncDec/
+├── templates/
+│   ├── index.html
+│   └── result.html
+├── static/
+├── app.py
+├── encryption.py
+├── decryption.py
+├── database.db
+└── README.md
+
+
 ### 📥 Installation
 
 ```bash
