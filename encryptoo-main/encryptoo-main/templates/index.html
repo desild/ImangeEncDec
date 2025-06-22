@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <section style="margin-left:3rem; height: 100vh; margin-top: 10rem">
+            <div class="row">
+                <div class="col-sm-8">
+                    <p style="color: #FF565E; display: flex; align-items: center; justify-content: center; ">one
+                        Solution for your Image
+                        Encryption</p>
+                    <br>
+                    <div class="button-group">
+                        <button class="btn btn-dark btn-lg" onclick="location.href= '/output/'">Get Started</button>
+                        <button class="btn btn-lg btn-about-us" onclick="location.href='/about'">About Us</button>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <img width="450px" height="auto" src="../static/img/Ninja_prev_ui.png" alt="" srcset="">
+                </div>
+            </div>
+        </section>
+        <section style="margin-left:3rem; height: 70vh">
+            <div class="row">
+                <div class="col-sm-5">
+                    <img width="450px" height="auto" src="../static/img/target.png" alt="" srcset="">
+                </div>
+                <div class="col-sm-7">
+                    <p style="display: flex; align-items: center; justify-content: center; ">with high and multi layer
+                        security</p>
+
+                    Not easy to break
+                </div>
+            </div>
+        </section>
+        <section style="margin-left:3rem; margin-top: 10rem; height: 80vh">
+            <div class="row">
+                <div class="col-sm-7">
+                    <p style="color:#6395FE; display: flex; align-items: center; justify-content: center; ">and did we
+                        mention that you can perform decryption at the fastest</p>
+                </div>
+                <div class="col-sm-5">
+                    <img width="450px" height="auto" src="../static/img/7531_prev_ui.png" alt="" srcset="">
+                </div>
+
+            </div>
+        </section>
+        <div class="text-center">
+            <button class="feedback-btn" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                Share Your Feedback
+            </button>
+        </div>
+        <footer style="text-align: center; font-size: 1.5rem; font-weight: 400; color:aliceblue">Made by Desil Dsilva</footer>
+    </div>
+
+<div class="modal fade feedback-modal" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="feedbackModalLabel">Share Your Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="feedbackForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">Rating</label>
+                        <select class="form-select" id="rating" required>
+                            <option value="">Select rating</option>
+                            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                            <option value="4">⭐⭐⭐⭐ Very Good</option>
+                            <option value="3">⭐⭐⭐ Good</option>
+                            <option value="2">⭐⭐ Fair</option>
+                            <option value="1">⭐ Poor</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="feedback" class="form-label">Your Feedback</label>
+                        <textarea class="form-control" id="feedback" rows="4" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn submit-btn" onclick="submitFeedback()">Submit Feedback</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function submitFeedback() {
+        const feedback = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            rating: document.getElementById('rating').value,
+            feedback: document.getElementById('feedback').value,
+            timestamp: new Date().toISOString()
+        };
+    
+        // Convert to JSON string
+        const feedbackJson = JSON.stringify(feedback, null, 2);
+        
+        // Log the feedback (replace with your server endpoint)
+        console.log('Feedback submitted:', feedbackJson);
+        
+        // Show success message
+        alert('Thank you for your feedback!');
+        
+        // Close the modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
+        modal.hide();
+        
+        // Reset the form
+        document.getElementById('feedbackForm').reset();
+    }
+    async function submitFeedback() {
+  try {
+      // Get form data
+      const feedback = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          rating: document.getElementById('rating').value,
+          feedback: document.getElementById('feedback').value
+      };
+
+      // Basic validation
+      if (!feedback.name || !feedback.email || !feedback.rating || !feedback.feedback) {
+          alert('Please fill in all fields');
+          return;
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(feedback.email)) {
+          alert('Please enter a valid email address');
+          return;
+      }
+
+      // Send feedback to server
+      const response = await fetch('/save-feedback', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(feedback)
+      });
+
+      const result = await response.json();
+
+      if (result.status === 'success') {
+          // Show success message
+          alert('Thank you for your feedback!');
+          
+          // Close the modal
+          const modal = bootstrap.Modal.getInstance(document.getElementById('feedbackModal'));
+          modal.hide();
+          
+          // Reset the form
+          document.getElementById('feedbackForm').reset();
+      } else {
+          throw new Error(result.message);
+      }
+  } catch (error) {
+      console.error('Error saving feedback:', error);
+      alert('Failed to save feedback. Please try again.');
+  }
+}
+function scrollToAbout() {
+    // First, check if the target section exists
+    const targetSection = document.querySelector('#features');
+    if (targetSection) {
+        // Get the navbar height to offset the scroll
+        const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+        
+        // Calculate the target position
+        const targetPosition = targetSection.offsetTop - navbarHeight - 20;
+        
+        // Smooth scroll to the target
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+    </script>
+</body>
+</html>
